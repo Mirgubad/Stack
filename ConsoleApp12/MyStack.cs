@@ -2,7 +2,7 @@
 
 namespace ConsoleApp12
 {
-    class MyStack
+    class MyStack:IEnumerable
     {
         private int maxsize { get; set; } = 1000;
         private int _index;
@@ -60,6 +60,16 @@ namespace ConsoleApp12
                     Console.WriteLine(item);
             }
         }
-
+ public IEnumerator GetEnumerator()
+        {
+            arr.GetEnumerator();
+            foreach (var item in arr)
+            {
+                if (item != null)
+                {
+                    yield return item;
+                }
+            }
+        }
     }
 }
